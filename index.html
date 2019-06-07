@@ -1,0 +1,145 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CO2 Prediction | Blooware</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css">
+
+</head>
+
+<body style="background:#f1f1f1;">
+    <div class="container-fluid" style="background:#0078db;padding:100px;margin-top:100px;">
+        <h1 class="heading text-center" style="color:#fff;">Predicting Co2 Emissions using ML.</h1>
+
+    </div>
+    <div class="container">
+        <div style="background:#fff;padding:30px;">
+            <div class="container text-center" style="padding-top: 50px;">
+
+                <p class="heading">Using Tensorflow.js to perform linear regression using an ML model. All the code can
+                    be
+                    found via our <a href="">Github</a>. The Dataset used was sourced from <a href="https://ourworldindata.org/co2-and-other-greenhouse-gas-emissions">Here</a>.
+                    We will try to keep this model up to date once new climate data is released.</p>
+
+                <h3>Predicted Part per million for the end of 2019 : <span class="prediction"></span></h3>
+                
+                <button id="btn">Begin Training</button>
+            </div>
+            <div class="container" style="padding-top: 50px;">
+                <div class="row">
+                    <div class="col-sm-12 col-md-9">
+                        <div id="msg" style="display:none;">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <h3>Loading and training (This can take a while)...</h3>
+                        </div>
+
+                        <div style="width:800px;">
+                            <canvas id="myChart" width="800" height="800"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-3">
+
+                        <table class="table table-bordered table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th title="Field #1">Year</th>
+                                    <th title="Field #2">CO₂ concentration (parts per million)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                <tr>
+                                    <td align="right">2000</td>
+                                    <td align="right">369.55</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2001</td>
+                                    <td align="right">371.14</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2002</td>
+                                    <td align="right">373.28</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2003</td>
+                                    <td align="right">375.8</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2004</td>
+                                    <td align="right">377.52</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2005</td>
+                                    <td align="right">379.8</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2006</td>
+                                    <td align="right">381.9</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2007</td>
+                                    <td align="right">383.79</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2008</td>
+                                    <td align="right">385.6</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2009</td>
+                                    <td align="right">387.43</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2010</td>
+                                    <td align="right">389.9</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2011</td>
+                                    <td align="right">391.65</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2012</td>
+                                    <td align="right">393.85</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2013</td>
+                                    <td align="right">396.52</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2014</td>
+                                    <td align="right">398.65</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2015</td>
+                                    <td align="right">400.83</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2016</td>
+                                    <td align="right">404.24</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2017</td>
+                                    <td align="right">406.55</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">2018</td>
+                                    <td align="right">408.52</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.7"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+<script src="mine.js"></script>
